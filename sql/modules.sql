@@ -84,6 +84,35 @@ INSERT INTO `template` VALUES ('15', '2020-04-01 15:12:28', '2020-04-01 15:45:22
 INSERT INTO `template` VALUES ('16', '2020-04-01 15:13:51', '2020-04-01 15:45:01', '下拉单选', '<div class=\"layui-form-item\">\n	<label class=\"layui-form-label\">{{name_alias}}</label>\n	<div id=\"{{name}}\">\n	</div>\n</div>', null, 'var temp_{{name}} =selectN({elem: \'#{{name}}\',name:\'{{name}}\',data:[{id:1,name:\"请自行更换分类接口\"}],verify:\'{{verify}}\',selected:[{{(isset($data)&& !empty($data[\'{{name}}\']))?$data[\'{{name}}\']:0 }}]})', null, '1');
 INSERT INTO `template` VALUES ('17', '2020-04-03 18:59:19', '2020-04-03 19:21:12', '分类', '<div class=\"layui-form-item\">\n	<label class=\"layui-form-label\">{{name_alias}}</label>\n	<div id=\"{{name}}\">\n	</div>\n</div>', null, 'var temp_{{name}} =selectN({elem: \'#{{name}}\',name:\'{{name}}\',data:\"{{route(\'cate.ajaxList\')}}?pid={{default}}\",verify:\'{{verify}}\',selected:[{{(isset($data)&& !empty($data[\'{{name}}\']))?$data[\'{{name}}\']:{{default}} }}]})', null, '1');
 
+DROP TABLE IF EXISTS `module`;
+CREATE TABLE `module` (
+  `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) NOT NULL DEFAULT '',
+  `name` varchar(50) NOT NULL DEFAULT '',
+  `description` varchar(200) DEFAULT '',
+  `type` tinyint(1) unsigned DEFAULT '0',
+  `issystem` tinyint(1) unsigned DEFAULT '0',
+  `listfields` varchar(255) DEFAULT '',
+  `sort` smallint(3) unsigned DEFAULT '0',
+  `status` tinyint(1) unsigned DEFAULT '1',
+  `updated_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of module
+-- ----------------------------
+INSERT INTO `module` VALUES ('39', '文章管理', 'article', null, '0', '0', '', '0', '1', '2020-03-05 07:57:46', '2020-03-05 15:57:46');
+INSERT INTO `module` VALUES ('40', '平台管理', 'platform', null, '0', '0', '', '0', '1', '2020-03-07 03:49:56', '2020-03-07 03:49:56');
+INSERT INTO `module` VALUES ('41', '配置列表', 'configlist', null, '0', '0', '', '0', '1', '2020-03-07 14:30:55', '2020-03-07 22:30:55');
+INSERT INTO `module` VALUES ('42', '模板管理', 'template', null, '0', '0', '', '0', '1', '2020-03-09 08:11:21', '2020-03-09 08:11:21');
+INSERT INTO `module` VALUES ('49', 'Test', 'test', null, '0', '0', '', '0', '1', '2020-04-03 19:08:37', '2020-04-03 19:08:37');
+INSERT INTO `module` VALUES ('45', '分类管理', 'category', null, '0', '0', '', '0', '1', '2020-03-20 05:17:13', '2020-03-20 05:17:13');
+INSERT INTO `module` VALUES ('47', '表单验证(后台)', 'validator', null, '0', '0', '', '0', '1', '2020-03-31 06:24:09', '2020-03-31 14:24:09');
+
+
+
 CREATE TABLE  IF NOT EXISTS `permissions` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
