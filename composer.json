@@ -1,0 +1,27 @@
+{
+    "name": "zngue/laravel_layui_admin_mudule",
+    "description": "zngue 用户管理 角色管理 library 用户管理",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "zngue",
+            "email": "875407262@qq.com"
+        }
+    ],
+    "require": {
+        "zngue/laravel_layui_admin_user": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zngue\\Module\\": "src"
+        }
+    },
+    "extra": {
+        "laravel":{
+            "providers": [
+                "Zngue\\Module\\Provider\\ModuleServiceProvider"
+            ]
+        }
+    }
+}
